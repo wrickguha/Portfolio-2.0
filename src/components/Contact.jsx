@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { FiMail, FiMapPin,FiPhone, FiGithub, FiLinkedin, FiSend } from 'react-icons/fi';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiMail, FiMapPin,FiPhone, FiGithub, FiLinkedin, FiSend, FiCheckCircle } from 'react-icons/fi';
 import './Contact.css';
 
 const Contact = () => {
@@ -13,12 +13,13 @@ const Contact = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // In a real scenario, this would send an email or post to an API.
+        // Simulate API call...
         setStatus('Sending...');
         setTimeout(() => {
             setStatus('success');
             setFormData({ name: '', email: '', message: '' });
-            setTimeout(() => setStatus(''), 3000);
+            // Remove the auto-hide so the user can see and manually close the popup
+            // setTimeout(() => setStatus(''), 3000); 
         }, 1500);
     };
 
@@ -130,6 +131,39 @@ const Contact = () => {
                     </motion.form>
                 </div>
             </div>
+
+            {/* Success Popup Modal */}
+            <AnimatePresence>
+                {status === 'success' && (
+                    <motion.div 
+                        className="popup-overlay"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                    >
+                        <motion.div 
+                            className="popup-content glass-card"
+                            initial={{ scale: 0.8, opacity: 0, y: 20 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.8, opacity: 0, y: 20 }}
+                            transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                        >
+                            <div className="popup-icon">
+                                <FiCheckCircle color="#10b981" />
+                            </div>
+                            <h3>Message Sent!</h3>
+                            <p>Thank you for reaching out, I will get back to you closely.</p>
+                            <button 
+                                className="btn btn-primary" 
+                                style={{ width: '100%', marginTop: '1rem', justifyContent: 'center' }} 
+                                onClick={() => setStatus('')}
+                            >
+                                Close
+                            </button>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 };
