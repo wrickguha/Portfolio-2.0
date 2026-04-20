@@ -2,9 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FiCode, FiServer, FiCpu } from 'react-icons/fi';
 import './About.css';
-
 const About = () => {
-    const defaultImg = "https://images.unsplash.com/photo-1544256718-3bcf237f3974?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"; // Placeholder profile img
+    const defaultImg = "/images/profile.jpg"; // Placeholder profile img
 
     return (
         <section id="about" className="about-section">
@@ -40,12 +39,18 @@ const About = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
-                        <h3>Transforming complex problems into elegant solutions</h3>
+                        <h3>I’m a full-stack developer who enjoys turning complex ideas into clean, scalable, and real-world applications.</h3>
                         <p>
-                            I am a Full Stack Developer from India who thrives on building production-grade applications. Whether it's architecting scalable e-commerce platforms, integrating complex payment gateways, or exploring the fascinating realms of AI-powered tools, I am dedicated to writing clean, maintainable code.
+                            Currently, I’m building production-grade platforms like <strong>Winkelkart</strong>, where I work on multi-vendor architecture, payment integrations, and logistics systems, and <strong>NanoIce</strong>, where I focus on crafting high-conversion, visually engaging e-commerce experiences.
                         </p>
                         <p>
-                            My approach combining modern frontend frameworks like React with robust backends in Laravel and Java allows me to engineer seamless experiences that deliver real-world business value.
+                            My approach blends modern frontend technologies like React with powerful backend systems using Laravel, Java, and Python frameworks such as Django and FastAPI. Beyond development, I actively explore machine learning and AI, working with tools like TensorFlow and Scikit-learn to build intelligent, data-driven solutions.
+                        </p>
+                        <p>
+                            I care deeply about writing clean, maintainable code and designing systems that don’t just work — but scale.
+                        </p>
+                        <p>
+                            Whether it’s engineering a seamless user experience, optimizing backend performance, or integrating complex third-party services, I focus on building products that deliver real impact.
                         </p>
 
                         <div className="about-highlights">

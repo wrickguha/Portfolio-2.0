@@ -12,7 +12,7 @@ const Projects = () => {
             tech: ["React", "Laravel", "MySQL", "Tailwind"],
             image: "https://images.unsplash.com/photo-1515443961218-a51367888e4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
             live: "https://magenta-newt-861501.hostingersite.com/",
-            github: "#"
+            github: "https://github.com/wrickguha/Paella_Experience_Valencia.git"
         },
         {
             id: 2,
@@ -21,7 +21,7 @@ const Projects = () => {
             tech: ["PHP (Laravel)", "MySQL", "MVC Architecture"],
             image: "/images/winkelkart.png",
             live: "https://winkelkart.com/",
-            github: "#"
+            github: "https://github.com/wrickguha/WinkelKart.git"
         },
         {
             id: 3,
@@ -30,7 +30,7 @@ const Projects = () => {
             tech: ["React", "Frontend Design", "UI/UX Optimization"],
             image: "/images/image.png",
             live: "https://nano-ice.com/",
-            github: "#"
+            github: "https://github.com/wrickguha/Nano-Ice.git"
         }
     ];
 
