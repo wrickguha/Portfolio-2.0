@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import emailjs from 'emailjs-com';
 import { FiMail, FiMapPin,FiPhone, FiGithub, FiLinkedin, FiSend, FiCheckCircle } from 'react-icons/fi';
 import './Contact.css';
 
 const Contact = () => {
-    const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+    const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
     const [status, setStatus] = useState('');
 
     const handleChange = (e) => {
@@ -13,14 +14,31 @@ const Contact = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Simulate API call...
         setStatus('Sending...');
-        setTimeout(() => {
-            setStatus('success');
-            setFormData({ name: '', email: '', message: '' });
-            // Remove the auto-hide so the user can see and manually close the popup
-            // setTimeout(() => setStatus(''), 3000); 
-        }, 1500);
+
+        const serviceID = 'service_hn49aal';
+        const templateID = 'template_pvee6zh';
+        // Need your public key here!
+        const publicKey = '_x0HRQDfftYD1-1a7';
+
+        const templateParams = {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            message: formData.message,
+        };
+
+        emailjs.send(serviceID, templateID, templateParams, publicKey)
+            .then((response) => {
+                console.log('SUCCESS!', response.status, response.text);
+                setStatus('success');
+                setFormData({ name: '', email: '', phone: '', message: '' });
+            })
+            .catch((err) => {
+                console.error('FAILED...', err);
+                setStatus('error');
+                alert('Failed to send the message, please try again.');
+            });
     };
 
     return (
@@ -110,6 +128,18 @@ const Contact = () => {
                                 onChange={handleChange} 
                                 required 
                                 placeholder="john@example.com"
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="phone" className="form-label">Phone Number</label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                className="form-control" 
+                                value={formData.phone} 
+                                onChange={handleChange} 
+                                placeholder="+1 234 567 8900"
                             />
                         </div>
                         <div className="form-group">
