@@ -56,7 +56,7 @@ const Hero = () => {
                         <button className="btn btn-primary" onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}>
                             View My Work <FiArrowRight className="btn-icon" />
                         </button>
-                        <a href="/resume.pdf" className="btn btn-outline" download>
+                        <a href="/public/pdf/Pratik_Full_Stack_Developer.pdf" className="btn btn-outline" download>
                             Download Resume <FiDownload className="btn-icon" />
                         </a>
                     </div>
