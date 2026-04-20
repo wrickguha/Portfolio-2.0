@@ -37,7 +37,7 @@ const Contact = () => {
             .catch((err) => {
                 console.error('FAILED...', err);
                 setStatus('error');
-                alert('Failed to send the message, please try again.');
+                alert(`Failed to send the message: ${err.text || 'Unknown error'}. Please try again.`);
             });
     };
 
